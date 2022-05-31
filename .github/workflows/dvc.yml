@@ -14,3 +14,5 @@ on: [push]
             repo_token: ${{ secrets.GITHUB_TOKEN }}
           run: |
             dvc remote ls
+            cd Data/Climate
+            dvc list IPCC_ClimateZoneMap.tif.dvc
