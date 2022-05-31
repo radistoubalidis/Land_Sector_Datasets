@@ -13,5 +13,5 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          dvc remote ls
+          dvc remote list
           dvc list Data/Climate/IPCC_ClimateZoneMap.tif.dvc
