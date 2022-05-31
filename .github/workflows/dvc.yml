@@ -11,6 +11,6 @@ on: [push]
         - uses: iterative/setup-dvc@v1
         - name: add dvc
           env:
-            repo_token: ${{secrets.GITHUB_TOKEN}}
+            repo_token: ${{ secrets.GITHUB_TOKEN }}
           run: |
             dvc remote ls
