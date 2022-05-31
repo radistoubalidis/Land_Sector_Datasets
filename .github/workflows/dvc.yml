@@ -9,9 +9,14 @@ jobs:
         with:
           python-version: '3.x'
       - uses: iterative/setup-dvc@v1
+      - uses: iterative/setup-cml@v1
       - name: add dvc
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          dvc remote list
-          dvc list Data/Climate/IPCC_ClimateZoneMap.tif.dvc
+          echo "# DVC REPORT" > report.md
+          echo "## Remote repository" >> report.md
+          dvc remote list >> report.md
+          echo "## Files and Directories currently tracked" >> report.md
+          dvc list Data/Climate/IPCC_ClimateZoneMap.tif.dvc >> report.md
+          cml-send-comment report.md
