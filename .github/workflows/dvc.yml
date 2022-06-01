@@ -15,8 +15,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "# DVC REPORT" > report.md
-          echo "## Remote repository" >> report.md
-          dvc remote list >> report.md
           echo "## Files and Directories currently tracked" >> report.md
-          dvc list Data/Climate/IPCC_ClimateZoneMap.tif.dvc >> report.md
+          dvc list -R --dvc-only . >> report.md
           cml-send-comment report.md
