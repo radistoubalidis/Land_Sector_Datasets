@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  HarmonizedWorldSoilDatabase:
+    cmd: python bilToTif.py
+    deps:
+    - path: HWSD_RASTER\hwsd.bil
+      md5: 6eadc5535ce8cc2e80bef5bd24ae23c3
+      size: 1866240000
+    - path: bilToTif.py
+      md5: e7cd2496c566ca310c791be7abd637e1
+      size: 1028
+    outs:
+    - path: HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif
+      md5: bc5c557e36ad555e5582263f4f993591
+      size: 1866413042
+    - path: HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
+      md5: f5938665ed0bf5f73666a5db3aff25cb
+      size: 49557853

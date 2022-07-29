@@ -1,0 +1,13 @@
+# Modify vars.python to your local python env with gdal installed
+vars:
+  - python: C:\Develop\anaconda\envs\gdal\python.exe
+stages:
+  HarmonizedWorldSoilDatabase:
+    cmd: python bilToTif.py
+    wdir: Data/Soil
+    deps:
+    - HWSD_RASTER\hwsd.bil
+    - bilToTif.py
+    outs:
+    - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif
+    - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
