@@ -2,8 +2,8 @@
 vars:
   - python: C:\Develop\anaconda\envs\gdal\python.exe
 stages:
-  HarmonizedWorldSoilDatabase:
-    cmd: python bilToTif.py
+  prepare_HarmonizedWorldSoilDatabase:
+    cmd: ${python} bilToTif.py HWSD_RASTER\hwsd.bil HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
     wdir: Data/Soil
     deps:
     - HWSD_RASTER\hwsd.bil
@@ -11,3 +11,10 @@ stages:
     outs:
     - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif
     - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
+    
+  # push_HarmonizedWorldSoilDatabase:
+  #   cmd: dvc push -r land_sector_datasets
+  #   wdir: Data/Soil
+  #   deps:
+  #   - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif
+  #   - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
