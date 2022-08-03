@@ -17,7 +17,7 @@ jobs:
 
       - name: Pull Raw Data
         run: |
-          dvc pull -r land_sector_inputs Data\Soil\HWSD_RASTER.dvc
+          dvc pull -r land_sector_inputs Data/Soil/HWSD_RASTER.dvc
 
       - name: Run pipeline
         run: |
