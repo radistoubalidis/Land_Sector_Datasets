@@ -18,7 +18,7 @@ class BIL2TIF:
         inBil = None
         outTif = None
 
-    # Defines an gdal.WarpOptions object to define the restucture options and run gdal.Warp
+    # Defines an gdal.WarpOptions object to define the restucture options and run gdal.War
     def restructure(self):
         options = gdal.WarpOptions(
             creationOptions=["COMPRESS=DEFLATE","PREDICTOR=2","ZLEVEL=9"],

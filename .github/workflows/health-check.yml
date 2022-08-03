@@ -12,12 +12,12 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.7'
-      - uses: iterative/setup-dvc@v1
+      - uses: iterative/setup-dvc@v2
       # - uses: iterative/setup-cml@v1
 
       - name: Pull Raw Data
         run: |
-          dvc pull -r land_sector_inputs Data/Soil/HWSD_RASTER.dvc
+          unzip Data/Soil/HWSD_RASTER.zip -d Data/Soil/HWSD_RASTER
 
       - name: Run pipeline
         run: |
