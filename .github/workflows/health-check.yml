@@ -13,6 +13,8 @@ jobs:
         with:
           python-version: '3.7'
       - uses: iterative/setup-dvc@v1
+        with:
+          version: '2.10.2'
       # - uses: iterative/setup-cml@v1
 
       - name: Pull Raw Data
@@ -28,3 +30,4 @@ jobs:
           export C_INCLUDE_PATH=/usr/include/gdal
           sudo pip3 install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') --global-option=build_ext --global-option="-I/usr/include/gdal"
           dvc repro
+          dvc push -r land_sector_datasets
