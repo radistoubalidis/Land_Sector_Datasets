@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: [ubuntu-latest]
-    name: Test changed-files
+    name: Check Dataset Processor
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v2
@@ -17,5 +17,10 @@ jobs:
 
       - name: Run pipeline
         run: |
-          sudo pip install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') --global-option=build_ext --global-option="-I/usr/include/gdal"
+          sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
+          sudo apt-get install gdal-bin
+          sudo apt-get install libgdal-dev
+          export CPLUS_INCLUDE_PATH=/usr/include/gdal
+          export C_INCLUDE_PATH=/usr/include/gdal
+          sudo pip3 install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') --global-option=build_ext --global-option="-I/usr/include/gdal"
           dvc repro
