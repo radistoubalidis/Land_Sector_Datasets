@@ -1,2 +1,4 @@
 ['remote "land_sector_datasets"']
     url = gdrive://1dStm10wBtwDudLAbhjv0Vovd8_eEBL1k
+['remote "land_sector_inputs"']
+    url = gdrive://1E397krZaHk2eW9Hg0ylcch93PdhGwBj8
