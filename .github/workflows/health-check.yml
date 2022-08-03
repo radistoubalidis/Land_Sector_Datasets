@@ -1,21 +1,21 @@
-name: CI
-on: [push]
+name: Health Check
+on:
+  push:
+    path: Data/Soil/bilToTif.py
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # windows-latest | macos-latest
+    runs-on: [ubuntu-latest]
     name: Test changed-files
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
         with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
+          python-version: '3.7'
+      - uses: iterative/setup-dvc@v1
+      # - uses: iterative/setup-cml@v1
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v24
-
-      - name: List all changed files
+      - name: Run pipeline
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
+          sudo pip install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') --global-option=build_ext --global-option="-I/usr/include/gdal"
+          dvc repro

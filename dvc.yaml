@@ -1,20 +1,17 @@
-# Modify vars.python to your local python env with gdal installed
-vars:
-  - python: C:\Develop\anaconda\envs\gdal\python.exe
 stages:
   prepare_HarmonizedWorldSoilDatabase:
-    cmd: ${python} bilToTif.py HWSD_RASTER\hwsd.bil HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
+    cmd: python bilToTif.py HWSD_RASTER/hwsd.bil HWSD_VECTOR/HarmonizedWorldSoilDatabase_RAW.tif HWSD_VECTOR/HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
     wdir: Data/Soil
     deps:
-    - HWSD_RASTER\hwsd.bil
+    - HWSD_RASTER/hwsd.bil
     - bilToTif.py
     outs:
-    - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif
-    - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
+    - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RAW.tif
+    - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
     
   # push_HarmonizedWorldSoilDatabase:
   #   cmd: dvc push -r land_sector_datasets
   #   wdir: Data/Soil
   #   deps:
-  #   - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RAW.tif
-  #   - HWSD_VECTOR\HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
+  #   - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RAW.tif
+  #   - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
