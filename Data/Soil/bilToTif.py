@@ -1,5 +1,5 @@
 import os
-from osgeo import gdal
+import gdal
 import sys
 import logging
 
