@@ -23,11 +23,8 @@ jobs:
 
       - name: Run pipeline
         run: |
-          sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
+          sudo apt install libgdal-dev
           sudo apt-get install gdal-bin
-          sudo apt-get install libgdal-dev
-          export CPLUS_INCLUDE_PATH=/usr/include/gdal
-          export C_INCLUDE_PATH=/usr/include/gdal
-          sudo pip3 install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') --global-option=build_ext --global-option="-I/usr/include/gdal"
+          pip install --global-option=build_ext --global-option="-I/usr/include/gdal" GDAL==`gdal-config --version`
           dvc repro
           dvc push -r land_sector_datasets
