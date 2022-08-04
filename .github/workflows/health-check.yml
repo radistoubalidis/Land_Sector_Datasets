@@ -23,8 +23,9 @@ jobs:
 
       - name: Run pipeline
         run: |
-          sudo apt install libgdal-dev
-          sudo apt-get install gdal-bin
-          pip install --global-option=build_ext --global-option="-I/usr/include/gdal" GDAL==`gdal-config --version`
-          dvc repro
-          dvc push -r land_sector_datasets
+          ls -l Data/Soil/HWSD_RASTER
+          # sudo apt install libgdal-dev
+          # sudo apt-get install gdal-bin
+          # pip install --global-option=build_ext --global-option="-I/usr/include/gdal" GDAL==`gdal-config --version`
+          # dvc repro
+          # dvc push -r land_sector_datasets
