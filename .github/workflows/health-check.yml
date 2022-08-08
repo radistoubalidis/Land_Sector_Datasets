@@ -1,7 +1,8 @@
 name: Health Check
 on:
   push:
-    path: 'Data/Soil/bilToTif.py'
+    paths:
+      - 'Data/Soil/bilToTif.py'
 
 jobs:
   build:
