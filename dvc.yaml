@@ -8,9 +8,3 @@ stages:
     - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RAW.tif
     - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
     
-  # push_HarmonizedWorldSoilDatabase:
-  #   cmd: dvc push -r land_sector_datasets
-  #   wdir: Data/Soil
-  #   deps:
-  #   - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RAW.tif
-  #   - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
