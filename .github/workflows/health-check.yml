@@ -29,4 +29,7 @@ jobs:
           pip install --global-option=build_ext --global-option="-I/usr/include/gdal" GDAL==`gdal-config --version`
           mkdir Data/Soil/HWSD_VECTOR
           dvc repro
-          dvc push -r land_sector_datasets
+      - name: Push to remote storage
+        run: dvc push -r land_sector_datasets
+        env:
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
