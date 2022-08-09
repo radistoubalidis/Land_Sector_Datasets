@@ -38,6 +38,8 @@ jobs:
       - uses: iterative/setup-cml@v1
 
       - name: CML report
+        env:
+         repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "## Health Check" > report.md
           echo "Run Pipeline with stages:" >> report.md
