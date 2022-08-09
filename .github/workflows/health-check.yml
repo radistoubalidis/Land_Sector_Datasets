@@ -34,3 +34,12 @@ jobs:
         run: dvc push -r land_sector_datasets
         env:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+
+      - name: CML report
+        run: |
+          echo "## Health Check" >> report.md
+          echo "Run Pipeline with stages:" >> report.md
+          dvc stage list --names-only >> report.md
+          echo "Pushed outputs to remote:" >> report.md
+          dvc remote list >> report.md
+          cml-send-comment report.md
