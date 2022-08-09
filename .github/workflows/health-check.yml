@@ -16,7 +16,7 @@ jobs:
       - uses: iterative/setup-dvc@v1
         with:
           version: '2.10.2'
-      # - uses: iterative/setup-cml@v1
+      
 
       - name: Pull Raw Data
         run: |
@@ -34,7 +34,9 @@ jobs:
         run: dvc push -r land_sector_datasets
         env:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
-
+      
+      - uses: iterative/setup-cml@v1
+      
       - name: CML report
         run: |
           echo "## Health Check" >> report.md
