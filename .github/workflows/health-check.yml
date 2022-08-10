@@ -25,7 +25,7 @@ jobs:
           pip install wget
           cd Data/Soil
           wget http://webarchive.iiasa.ac.at/Research/LUC/External-World-soil-database/HWSD_Data/HWSD_RASTER.zip
-          unzip Data/Soil/HWSD_RASTER.zip -d Data/Soil/HWSD_RASTER
+          unzip HWSD_RASTER.zip -d HWSD_RASTER
 
       - name: Run pipeline
         run: |
