@@ -1,0 +1,10 @@
+stages:
+  prepare_HarmonizedWorldSoilDatabase:
+    cmd: python bilToTif.py HWSD_RASTER/hwsd.bil HWSD_VECTOR/HarmonizedWorldSoilDatabase_RAW.tif HWSD_VECTOR/HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
+    wdir: Data/Soil
+    deps:
+    - bilToTif.py
+    outs:
+    - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RAW.tif
+    - HWSD_VECTOR/HarmonizedWorldSoilDatabase_RESTRUCTURED.tif
+    
